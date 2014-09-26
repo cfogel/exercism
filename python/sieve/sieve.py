@@ -1,7 +1,11 @@
 def sieve(self):
-    primes = list(range(2,self))
-    for a in primes:
-        for b in primes:
-            if (not b == a) and (b % a == 0):
-                primes.remove(b)
-    return primes
+    primes = dict()
+    primelist = []
+    for a in range(2,self):
+        primes[a] = True
+    for b in range(2,self):
+        if primes[b] == True:
+            primelist.append(b)
+            for c in range(2,int(self / b)+1):
+                primes[b*c] = False
+    return primelist

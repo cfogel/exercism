@@ -1,5 +1,6 @@
 import string
-def word_count(self):
-    self = self.lower().translate(self.maketrans('','',string.punctuation))
-    words = self.split()
+from collections import Counter
+def word_count(wordlist):
+    wordlist = wordlist.lower().translate(wordlist.maketrans('','',string.punctuation))
+    words = wordlist.split()
     return Counter(words)
